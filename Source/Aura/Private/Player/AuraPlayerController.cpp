@@ -3,6 +3,7 @@
 
 #include "Player/AuraPlayerController.h"
 #include "EnhancedInputSubsystems.h"
+#include "EnhancedInputComponent.h"
 
 AAuraPlayerController::AAuraPlayerController()
 {
@@ -14,6 +15,13 @@ void AAuraPlayerController::BeginPlay()
 	Super::BeginPlay();
 
 	SetupInputSettings();
+}
+
+void AAuraPlayerController::SetupInputComponent()
+{
+	Super::SetupInputComponent();
+
+	InputComponent
 }
 
 /**

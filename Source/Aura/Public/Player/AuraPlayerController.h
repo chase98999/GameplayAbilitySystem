@@ -7,6 +7,8 @@
 #include "AuraPlayerController.generated.h"
 
 class UInputMappingContext;
+class UInputAction;
+struct FInputActionValue;
 
 /**
  * 
@@ -21,6 +23,7 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+	virtual void SetupInputComponent() override;
 
 private:
 	UPROPERTY(EditAnywhere, Category = "Input")
