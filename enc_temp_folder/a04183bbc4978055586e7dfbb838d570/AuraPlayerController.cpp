@@ -76,15 +76,15 @@ void AAuraPlayerController::CursorTrace()
 
 	if (LastActor == nullptr)
 	{
-		if (ThisActor != nullptr) { ThisActor->HighlightActor(); }
+		if (ThisActor) { ThisActor->HighlightActor(); }
 	}
 	// LastActor valid
 	else
 	{
-		if (ThisActor == nullptr)
+		if (!ThisActor)
 		{
 			// Case C
-			if (LastActor) { LastActor->UnHighlightActor(); }
+			LastActor->UnHighlightActor();
 		}
 		else if (LastActor != ThisActor)
 		{
