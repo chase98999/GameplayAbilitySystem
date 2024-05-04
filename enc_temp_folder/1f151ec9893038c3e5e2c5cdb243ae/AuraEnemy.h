@@ -19,14 +19,11 @@ public:
 	AAuraEnemy();
 	virtual void HighlightActor() override;
 	virtual void UnHighlightActor() override;
+	virtual void Tick(float DeltaSeconds) override;
 
 private:
 	UPROPERTY(VisibleAnywhere)
 	bool bShouldBeHighlighted = false;
-
-protected:
-	virtual void Tick(float DeltaSeconds) override;
-	virtual void BeginPlay() override;
 	
 	
 };
