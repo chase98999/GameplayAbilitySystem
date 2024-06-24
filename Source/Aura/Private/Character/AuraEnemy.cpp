@@ -42,6 +42,11 @@ void AAuraEnemy::UnHighlightActor()
 	bShouldBeHighlighted = false;
 }
 
+int32 AAuraEnemy::GetCharacterLevel()
+{
+	return Level;
+}
+
 void AAuraEnemy::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
