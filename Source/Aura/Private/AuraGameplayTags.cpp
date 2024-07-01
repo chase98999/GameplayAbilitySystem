@@ -4,6 +4,9 @@
 #include "AuraGameplayTags.h"
 #include "GameplayTagsManager.h"
 
+// Define the static member variable
+FAuraGameplayTags FAuraGameplayTags::GameplayTags;
+
 /* PRIMARY ATTRIBUTES */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Primary_Strength, "Attributes.Primary.Strength");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Primary_Intelligence, "Attributes.Primary.Intelligence");
