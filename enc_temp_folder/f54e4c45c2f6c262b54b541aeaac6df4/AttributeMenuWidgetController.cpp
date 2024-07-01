@@ -2,13 +2,9 @@
 
 
 #include "UI/WidgetController/AttributeMenuWidgetController.h"
-#include "AbilitySystem/AuraAttributeSet.h"
 
 void UAttributeMenuWidgetController::BroadcastInitialValues()
 {
-	UAuraAttributeSet* AS = CastChecked<UAuraAttributeSet>(AttributeSet);
-
-	AS->GetStrength();
 }
 
 void UAttributeMenuWidgetController::BindCallbacksToDependencies()
