@@ -24,5 +24,14 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Secondary_MaxMana, "Attributes.Secondary.M
 
 void FAuraGameplayTags::InitializeNativeGameplayTags()
 {
-	//GameplayTags.Attributes_Secondary_Armor = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.Secondary.Armor"), FString("Reduces damage taken, improves block chance"));
+	/*
+	 * Primary Attributes
+	 */
+	GameplayTags.Attributes_Primary_Strength = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Primary.Strength"));
+
+	/*
+	 * Secondary Attributes
+	 */
+
+	
 }
