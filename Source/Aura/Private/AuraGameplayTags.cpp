@@ -25,6 +25,15 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Secondary_ManaRegeneration, "Attributes.Se
 UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Secondary_MaxHealth, "Attributes.Secondary.MaxHealth");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Secondary_MaxMana, "Attributes.Secondary.MaxMana");
 
+/* INPUT ACTION TAGS */
+UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_LMB, "InputTag.LMB");
+UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_RMB, "InputTag.RMB");
+UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_1, "InputTag.1");
+UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_2, "InputTag.2");
+UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_3, "InputTag.3");
+UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_4, "InputTag.4");
+
+
 void FAuraGameplayTags::InitializeNativeGameplayTags()
 {
 	/*
@@ -48,5 +57,15 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Attributes_Secondary_ManaRegeneration = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Secondary.ManaRegeneration"));
 	GameplayTags.Attributes_Secondary_MaxHealth = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Secondary.MaxHealth"));
 	GameplayTags.Attributes_Secondary_MaxMana = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Secondary.MaxMana"));
+
+	/*
+	* Input Tags
+	*/
+	GameplayTags.InputTag_LMB = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.LMB"));
+	GameplayTags.InputTag_RMB = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.RMB"));
+	GameplayTags.InputTag_1 = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.1"));
+	GameplayTags.InputTag_2 = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.2"));
+	GameplayTags.InputTag_3 = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.3"));
+	GameplayTags.InputTag_4 = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.4"));
 
 }

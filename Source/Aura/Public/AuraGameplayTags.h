@@ -24,6 +24,14 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Attributes_Secondary_ManaRRegeneration);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Attributes_Secondary_MaxHealth);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Attributes_Secondary_MaxMana);
 
+/* Input Action Tags */
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_LMB);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_RMB);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_1);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_2);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_3);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_4);
+
 /*
 * AuraGameplayTags
 * 
@@ -51,7 +59,13 @@ public:
 	FGameplayTag Attributes_Secondary_MaxHealth;
 	FGameplayTag Attributes_Secondary_MaxMana;
 
-protected:
+	FGameplayTag InputTag_LMB;
+	FGameplayTag InputTag_RMB;
+	FGameplayTag InputTag_1;
+	FGameplayTag InputTag_2;
+	FGameplayTag InputTag_3;
+	FGameplayTag InputTag_4;
+
 
 private:
 	static FAuraGameplayTags GameplayTags;
