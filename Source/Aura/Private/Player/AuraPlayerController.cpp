@@ -88,6 +88,7 @@ void AAuraPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 {
 	if (!InputTag.MatchesTagExact(FAuraGameplayTags::Get().InputTag_LMB))
 	{
+		FGameplayTag CompareTag = FAuraGameplayTags::Get().InputTag_LMB;
 		if (GetASC()) { GetASC()->AbilityInputTagReleased(InputTag); }
 		return;
 	}
@@ -127,6 +128,7 @@ void AAuraPlayerController::AbilityInputTagHeld(FGameplayTag InputTag)
 	// If ability is not running (LMB) then we don't need to worry about extra logic
 	if (!InputTag.MatchesTagExact(FAuraGameplayTags::Get().InputTag_LMB))
 	{
+		GEngine->AddOnScreenDebugMessage(4, 3.0f, FColor::Emerald, FString(InputTag.ToString()));
 		if (GetASC()) { GetASC()->AbilityInputTagHeld(InputTag); }
 		return;
 	}
