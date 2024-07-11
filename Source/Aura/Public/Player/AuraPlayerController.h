@@ -49,7 +49,7 @@ private:
 	
 	// Functions
 private:
-	void SetupInputSettings();
+	//void SetupInputSettings();
 
 	void Move(const FInputActionValue& InputActionValue);
 	void ShiftPressed();

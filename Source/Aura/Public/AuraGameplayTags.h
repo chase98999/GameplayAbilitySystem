@@ -31,6 +31,7 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_1);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_2);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_3);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_4);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_Shift);
 
 /*
 * AuraGameplayTags
@@ -65,6 +66,7 @@ public:
 	FGameplayTag InputTag_2;
 	FGameplayTag InputTag_3;
 	FGameplayTag InputTag_4;
+	FGameplayTag InputTag_Shift;
 
 
 private:

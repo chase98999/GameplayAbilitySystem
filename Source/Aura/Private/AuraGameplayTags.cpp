@@ -32,6 +32,7 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_1, "InputTag.1");
 UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_2, "InputTag.2");
 UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_3, "InputTag.3");
 UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_4, "InputTag.4");
+UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_Shift, "InputTag.Shift");
 
 
 void FAuraGameplayTags::InitializeNativeGameplayTags()
@@ -67,5 +68,6 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.InputTag_2 = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.2"));
 	GameplayTags.InputTag_3 = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.3"));
 	GameplayTags.InputTag_4 = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.4"));
+	GameplayTags.InputTag_Shift = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.Shift"));
 
 }
