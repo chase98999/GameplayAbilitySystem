@@ -63,16 +63,6 @@ void AAuraPlayerController::Move(const FInputActionValue& InputActionValue)
 	}
 }
 
-void AAuraPlayerController::ShiftPressed()
-{
-	bShiftKeyDown = true;
-}
-
-void AAuraPlayerController::ShiftReleased()
-{
-	bShiftKeyDown = false;
-}
-
 void AAuraPlayerController::CursorTrace()
 {
 	GetHitResultUnderCursor(ECC_Visibility, false, CursorHit);

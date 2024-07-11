@@ -52,8 +52,8 @@ private:
 	void SetupInputSettings();
 
 	void Move(const FInputActionValue& InputActionValue);
-	void ShiftPressed();
-	void ShiftReleased();
+	void ShiftPressed() { bShiftKeyDown = true; }
+	void ShiftReleased() { bShiftKeyDown = false; }
 	bool bShiftKeyDown = false;
 
 	void CursorTrace();
