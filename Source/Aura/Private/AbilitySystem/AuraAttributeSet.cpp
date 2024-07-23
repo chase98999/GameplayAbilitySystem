@@ -90,6 +90,17 @@ void UAuraAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 		GEngine->AddOnScreenDebugMessage(1, 3.f, FColor::Red, FString::Printf(TEXT("Mana: %f"), GetMana()));
 		SetMana(FMath::ClampAngle(GetMana(), 0.f, GetMaxMana()));
 	}
+
+	if (Data.EvaluatedData.Attribute == GetIncomingDamageAttribute())
+	{
+		const float LocalIncomingDamage = GetIncomingDamage();
+		SetIncomingDamage(0.f);
+		if (!(LocalIncomingDamage > 0.f)) { return; }
+		const float NewHealth = GetHealth() - LocalIncomingDamage;
+		SetHealth(FMath::Clamp(NewHealth, 0.f, GetMaxHealth()));
+
+		const bool bFatal = NewHealth <= 0.f;
+	}
 }
 
 void UAuraAttributeSet::SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props)
