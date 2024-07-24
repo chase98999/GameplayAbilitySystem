@@ -34,6 +34,9 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_3, "InputTag.3");
 UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_4, "InputTag.4");
 UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_Shift, "InputTag.Shift");
 
+/* Effects Tags */
+UE_DEFINE_GAMEPLAY_TAG(TAG_Effects_HitReact, "Effects.HitReact");
+
 /* Misc Input Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage, "Damage");
 
@@ -72,6 +75,9 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.InputTag_3 = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.3"));
 	GameplayTags.InputTag_4 = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.4"));
 	GameplayTags.InputTag_Shift = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.Shift"));
+
+	/* Effects Tags */
+	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().RequestGameplayTag(FName("Effects.HitReact"));
 
 	/* Misc Gameplay Tags */
 	GameplayTags.Damage = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage"));
