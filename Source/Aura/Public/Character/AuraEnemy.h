@@ -43,6 +43,11 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Combat")
 	float BaseWalkSpeed = 250.f;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
+	float LifeSpan = 5.f;
+
+	virtual void Die() override;
+
 private:
 	UPROPERTY(VisibleAnywhere)
 	bool bShouldBeHighlighted = false;

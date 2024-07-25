@@ -97,6 +97,12 @@ void AAuraEnemy::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCou
 
 }
 
+void AAuraEnemy::Die()
+{
+	SetLifeSpan(LifeSpan);
+	Super::Die();
+}
+
 void AAuraEnemy::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
