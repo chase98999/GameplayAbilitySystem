@@ -2,23 +2,40 @@
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AuraGameplayTags.h"
 #include "EnhancedInputSubsystems.h"
+#include "GameFramework/Character.h"
 #include "NavigationPath.h"
 #include "NavigationSystem.h"
+#include "UI/Widget/DamageTextComponent.h"
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
 #include "Components/SplineComponent.h"
 #include "Input/AuraInputComponent.h"
 #include "Interaction/EnemyInterface.h"
+
 AAuraPlayerController::AAuraPlayerController()
 {
 	bReplicates = true;
 	Spline = CreateDefaultSubobject<USplineComponent>("Spline");
 }
+
 void AAuraPlayerController::PlayerTick(float DeltaTime)
 {
 	Super::PlayerTick(DeltaTime);
 	CursorTrace();
 	AutoRun();
 }
+
+void AAuraPlayerController::ShowDamageNumber_Implementation(float DamageAmount, ACharacter* TargetCharacter)
+{
+	if (IsValid(TargetCharacter) && DamageTextComponentClass)
+	{
+		UDamageTextComponent* DamageText = NewObject<UDamageTextComponent>(TargetCharacter, DamageTextComponentClass);
+		DamageText->RegisterComponent();
+		DamageText->AttachToComponent(TargetCharacter->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
+		DamageText->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+		DamageText->SetDamageText(DamageAmount);
+	}
+}
+
 void AAuraPlayerController::AutoRun()
 {
 	if (!bAutoRunning) return;
@@ -34,6 +51,7 @@ void AAuraPlayerController::AutoRun()
 		}
 	}
 }
+
 void AAuraPlayerController::CursorTrace()
 {
 	GetHitResultUnderCursor(ECC_Visibility, false, CursorHit);
@@ -46,6 +64,7 @@ void AAuraPlayerController::CursorTrace()
 		if (ThisActor) ThisActor->HighlightActor();
 	}
 }
+
 void AAuraPlayerController::AbilityInputTagPressed(FGameplayTag InputTag)
 {
 	if (InputTag.MatchesTagExact(FAuraGameplayTags::Get().InputTag_LMB))
@@ -54,6 +73,7 @@ void AAuraPlayerController::AbilityInputTagPressed(FGameplayTag InputTag)
 		bAutoRunning = false;
 	}
 }
+
 void AAuraPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 {
 	if (!InputTag.MatchesTagExact(FAuraGameplayTags::Get().InputTag_LMB))
@@ -84,6 +104,7 @@ void AAuraPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 		bTargeting = false;
 	}
 }
+
 void AAuraPlayerController::AbilityInputTagHeld(FGameplayTag InputTag)
 {
 	if (!InputTag.MatchesTagExact(FAuraGameplayTags::Get().InputTag_LMB))
