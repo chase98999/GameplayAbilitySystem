@@ -37,8 +37,12 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_Shift, "InputTag.Shift");
 /* Effects Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Effects_HitReact, "Effects.HitReact");
 
-/* Misc Input Tags */
+/* Damage Input Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage, "Damage");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_Physical_Piercing, "Damage.Physical.Piercing");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_Physical_Slashing, "Damage.Physical.Slashing");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_Physical_Blunt, "Damage.Physical.Blunt");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Fire, "Damage.NonPhysical.Fire");
 
 
 void FAuraGameplayTags::InitializeNativeGameplayTags()
@@ -79,7 +83,15 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	/* Effects Tags */
 	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().RequestGameplayTag(FName("Effects.HitReact"));
 
-	/* Misc Gameplay Tags */
+	/* Damage Gameplay Tags */
 	GameplayTags.Damage = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage"));
+	GameplayTags.Damage_Physical_Piercing = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.Physical.Piercing"));
+	GameplayTags.Damage_Physical_Slashing = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.Physical.Slashing"));
+	GameplayTags.Damage_Physical_Blunt = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.Physical.Blunt"));
+	GameplayTags.Damage_NonPhysical_Fire = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.NonPhysical.Fire"));
 
+	GameplayTags.DamageTypes.Add(GameplayTags.Damage_Physical_Piercing);
+	GameplayTags.DamageTypes.Add(GameplayTags.Damage_Physical_Slashing);
+	GameplayTags.DamageTypes.Add(GameplayTags.Damage_Physical_Blunt);
+	GameplayTags.DamageTypes.Add(GameplayTags.Damage_NonPhysical_Fire);
 }

@@ -36,8 +36,13 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_InputTag_Shift);
 /* Effects Tags */
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Effects_HitReact);
 
-/* Misc Gameplay Tags */
+/* Damage Gameplay Tags */
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage_Physical_Piercing);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage_Physical_Slashing);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage_Physical_Blunt);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage_NonPhysical_Fire);
+
 
 /*
 * AuraGameplayTags
@@ -77,6 +82,12 @@ public:
 	FGameplayTag Effects_HitReact;
 
 	FGameplayTag Damage;
+	FGameplayTag Damage_Physical_Piercing;
+	FGameplayTag Damage_Physical_Slashing;
+	FGameplayTag Damage_Physical_Blunt;
+	FGameplayTag Damage_NonPhysical_Fire;
+
+	TArray<FGameplayTag> DamageTypes;
 
 
 private:
