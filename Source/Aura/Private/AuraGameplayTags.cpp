@@ -25,6 +25,15 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Secondary_ManaRegeneration, "Attributes.Se
 UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Secondary_MaxHealth, "Attributes.Secondary.MaxHealth");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Secondary_MaxMana, "Attributes.Secondary.MaxMana");
 
+/* RESISTANCES */
+UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Resistance_Piercing, "Attributes.Resistance.Piercing");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Resistance_Slashing, "Attributes.Resistance.Slashing");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Resistance_Blunt, "Attributes.Resistance.Blunt");
+
+UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Resistance_Fire, "Attributes.Resistance.Fire");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Resistance_Lightning, "Attributes.Resistance.Lightning");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Resistance_Arcane, "Attributes.Resistance.Arcane");
+
 /* INPUT ACTION TAGS */
 UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_LMB, "InputTag.LMB");
 UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_RMB, "InputTag.RMB");
@@ -39,10 +48,14 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Effects_HitReact, "Effects.HitReact");
 
 /* Damage Input Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage, "Damage");
+
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_Physical_Piercing, "Damage.Physical.Piercing");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_Physical_Slashing, "Damage.Physical.Slashing");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_Physical_Blunt, "Damage.Physical.Blunt");
+
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Fire, "Damage.NonPhysical.Fire");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Lightning, "Damage.NonPhysical.Lightning");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Arcane, "Damage.NonPhysical.Arcane");
 
 
 void FAuraGameplayTags::InitializeNativeGameplayTags()
@@ -70,6 +83,16 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Attributes_Secondary_MaxMana = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Secondary.MaxMana"));
 
 	/*
+	* Resistances
+	*/
+	GameplayTags.Attributes_Resistance_Piercing = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Resistance.Piercing"));
+	GameplayTags.Attributes_Resistance_Slashing = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Resistance.Slashing"));
+	GameplayTags.Attributes_Resistance_Blunt = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Resistance.Blunt"));
+	GameplayTags.Attributes_Resistance_Fire = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Resistance.Fire"));
+	GameplayTags.Attributes_Resistance_Lightning = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Resistance.Lightning"));
+	GameplayTags.Attributes_Resistance_Arcane = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Resistance.Arcane"));
+
+	/*
 	* Input Tags
 	*/
 	GameplayTags.InputTag_LMB = UGameplayTagsManager::Get().RequestGameplayTag(FName("InputTag.LMB"));
@@ -89,9 +112,13 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Damage_Physical_Slashing = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.Physical.Slashing"));
 	GameplayTags.Damage_Physical_Blunt = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.Physical.Blunt"));
 	GameplayTags.Damage_NonPhysical_Fire = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.NonPhysical.Fire"));
+	GameplayTags.Damage_NonPhysical_Lightning = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.NonPhysical.Lightning"));
+	GameplayTags.Damage_NonPhysical_Arcane = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.NonPhysical.Arcane"));
 
-	GameplayTags.DamageTypes.Add(GameplayTags.Damage_Physical_Piercing);
-	GameplayTags.DamageTypes.Add(GameplayTags.Damage_Physical_Slashing);
-	GameplayTags.DamageTypes.Add(GameplayTags.Damage_Physical_Blunt);
-	GameplayTags.DamageTypes.Add(GameplayTags.Damage_NonPhysical_Fire);
+	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Physical_Piercing, GameplayTags.Attributes_Resistance_Piercing);
+	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Physical_Slashing, GameplayTags.Attributes_Resistance_Slashing);
+	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Physical_Blunt, GameplayTags.Attributes_Resistance_Blunt);
+	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Fire, GameplayTags.Attributes_Resistance_Fire);
+	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Lightning, GameplayTags.Attributes_Resistance_Lightning);
+	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Arcane, GameplayTags.Attributes_Resistance_Arcane);
 }
