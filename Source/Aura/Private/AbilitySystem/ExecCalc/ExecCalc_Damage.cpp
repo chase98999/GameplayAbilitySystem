@@ -27,15 +27,6 @@ struct AuraDamageStatics
 
 	TMap<FGameplayTag, FGameplayEffectAttributeCaptureDefinition> TagsToCaptureDefs;
 
-	DECLARE_ATTRIBUTE_CAPTUREDEF(PiercingResistance);
-	DECLARE_ATTRIBUTE_CAPTUREDEF(SlashingResistance);
-	DECLARE_ATTRIBUTE_CAPTUREDEF(BluntResistance);
-	DECLARE_ATTRIBUTE_CAPTUREDEF(FireResistance);
-	DECLARE_ATTRIBUTE_CAPTUREDEF(LightningResistance);
-	DECLARE_ATTRIBUTE_CAPTUREDEF(ArcaneResistance);
-
-	TMap<FGameplayTag, FGameplayEffectAttributeCaptureDefinition> TagsToCaptureDefs;
-
 	AuraDamageStatics()
 	{
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UAuraAttributeSet, Armor, Target, false);
@@ -127,7 +118,7 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 
 		const FGameplayEffectAttributeCaptureDefinition CaptureDef = AuraDamageStatics().TagsToCaptureDefs[ResistanceTag];
 
-		float DamageTypeValue = Spec.GetSetByCallerMagnitude(Pair.Key);
+		float DamageTypeValue = Spec.GetSetByCallerMagnitude(DamageTypeTag);
 
 		float Resistance = 0.f;
 

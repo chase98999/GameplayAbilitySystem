@@ -26,7 +26,7 @@ void UAuraProjectileSpell::SpawnProjectile(const FVector& ProjectileTargetLocati
 	{
 		const FVector SocketLocation = CombatInterface->GetCombatSocketLocation();
 		FRotator Rotation = (ProjectileTargetLocation - SocketLocation).Rotation();
-		Rotation.Pitch = 0.f;	// Makes fireball stay parallel to ground instead of going towards enemy center
+		//Rotation.Pitch = 0.f;	// Makes fireball stay parallel to ground instead of going towards enemy center
 
 		FTransform SpawnTransform;
 		SpawnTransform.SetLocation(SocketLocation);
