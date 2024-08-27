@@ -9,6 +9,7 @@
 
 class UOverlayWidgetController;
 class UAbilitySystemComponent;
+class UAttributeMenuWidgetController;
 
 /**
  * 
