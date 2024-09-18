@@ -61,6 +61,10 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Melee, "Abilities.Attack.Melee");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Ranged, "Abilities.Attack.Ranged");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Spell, "Abilities.Attack.Spell");
 
+UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_Weapon, "Montage.Attack.Weapon");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_RightHand, "Montage.Attack.RightHand");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_LeftHand, "Montage.Attack.LeftHand");
+
 
 void FAuraGameplayTags::InitializeNativeGameplayTags()
 {
@@ -130,4 +134,9 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Fire, GameplayTags.Attributes_Resistance_Fire);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Lightning, GameplayTags.Attributes_Resistance_Lightning);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Arcane, GameplayTags.Attributes_Resistance_Arcane);
+
+	/* Montage Gameplay Tags */
+	GameplayTags.Montage_Attack_Weapon = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.Weapon"));
+	GameplayTags.Montage_Attack_RightHand = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.RightHand"));
+	GameplayTags.Montage_Attack_LeftHand = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.LeftHand"));
 }

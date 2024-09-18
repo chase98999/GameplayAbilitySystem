@@ -60,6 +60,12 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Melee);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Ranged);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Spell);
 
+/* Montage Tags */
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_Weapon);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_RightHand);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_LeftHand);
+
+
 /*
 * AuraGameplayTags
 * 
@@ -115,6 +121,10 @@ public:
 	FGameplayTag Abilities_Attack_Melee;
 	FGameplayTag Abilities_Attack_Ranged;
 	FGameplayTag Abilities_Attack_Spell;
+
+	FGameplayTag Montage_Attack_Weapon;
+	FGameplayTag Montage_Attack_RightHand;
+	FGameplayTag Montage_Attack_LeftHand;
 
 	TMap<FGameplayTag, FGameplayTag> DamageTypesToResistances;
 

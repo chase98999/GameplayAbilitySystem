@@ -5,6 +5,7 @@
 #include "AbilitySystemComponent.h"
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
 #include "Aura/Aura.h"
+#include "AuraGameplayTags.h"
 #include "Components/CapsuleComponent.h"
 
 // Sets default values
@@ -68,10 +69,25 @@ void AAuraCharacterBase::InitAbilityActorInfo()
 
 }
 
-FVector AAuraCharacterBase::GetCombatSocketLocation_Implementation()
+FVector AAuraCharacterBase::GetCombatSocketLocation_Implementation(const FGameplayTag& MontageTag)
 {
-	check(Weapon);
-	return Weapon->GetSocketLocation(WeaponTipSocketName);
+	// This is technically a bad implementation since you would need a new if statement for each attack type
+	// But this is just a learning project and I'm not adding any more assets to the game so this is good enough
+	const FAuraGameplayTags& GameplayTags = FAuraGameplayTags::Get();
+	if (MontageTag.MatchesTagExact(GameplayTags.Montage_Attack_Weapon) && IsValid(Weapon)) 
+	{ 
+		return Weapon->GetSocketLocation(WeaponTipSocketName); 
+	}
+	if (MontageTag.MatchesTagExact(GameplayTags.Montage_Attack_RightHand)) 
+	{ 
+		return GetMesh()->GetSocketLocation(RightHandSocketName); 
+	}
+	if (MontageTag.MatchesTagExact(GameplayTags.Montage_Attack_LeftHand))
+	{
+		return GetMesh()->GetSocketLocation(LeftHandSocketName);
+	}
+
+	return FVector();
 }
 
 bool AAuraCharacterBase::IsDead_Implementation() const
@@ -82,6 +98,11 @@ bool AAuraCharacterBase::IsDead_Implementation() const
 AActor* AAuraCharacterBase::GetAvatar_Implementation()
 {
 	return this;
+}
+
+TArray<FTaggedMontage> AAuraCharacterBase::GetAttackMontages_Implementation()
+{
+	return AttackMontages;
 }
 
 void AAuraCharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level)
