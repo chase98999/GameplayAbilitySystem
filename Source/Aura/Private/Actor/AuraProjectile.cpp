@@ -65,7 +65,7 @@ void AAuraProjectile::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, 
 	if (DamageEffectSpecHandle.Data.IsValid() && 
 		DamageEffectSpecHandle.Data.Get()->GetContext().GetEffectCauser() == OtherActor) { return; }
 
-	if (!UAuraAbilitySystemLibrary::IsFriend(DamageEffectSpecHandle.Data.Get()->GetContext().GetEffectCauser(),
+	if (UAuraAbilitySystemLibrary::IsFriend(DamageEffectSpecHandle.Data.Get()->GetContext().GetEffectCauser(),
 		OtherActor))
 	{
 		return;
