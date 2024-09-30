@@ -27,6 +27,7 @@ class UCombatInterface : public UInterface
 };
 
 class UAnimMontage;
+class UNiagaraSystem;
 
 /**
  * 
@@ -58,4 +59,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	TArray<FTaggedMontage> GetAttackMontages();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	TObjectPtr<UNiagaraSystem> GetBloodEffect();
 };
