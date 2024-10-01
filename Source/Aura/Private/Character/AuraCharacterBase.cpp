@@ -105,9 +105,9 @@ TArray<FTaggedMontage> AAuraCharacterBase::GetAttackMontages_Implementation()
 	return AttackMontages;
 }
 
-TObjectPtr<UNiagaraSystem> AAuraCharacterBase::GetBloodEffect_Implementation()
+UNiagaraSystem* AAuraCharacterBase::GetBloodEffect_Implementation()
 {
-	return BloodEffect;
+	return BloodEffect.Get();
 }
 
 void AAuraCharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level)

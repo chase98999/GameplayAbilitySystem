@@ -17,6 +17,9 @@ struct FTaggedMontage
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FGameplayTag MontageTag;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TObjectPtr<USoundBase> ImpactSound = nullptr;
 };
 
 // This class does not need to be modified.
@@ -61,5 +64,5 @@ public:
 	TArray<FTaggedMontage> GetAttackMontages();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	TObjectPtr<UNiagaraSystem> GetBloodEffect();
+	UNiagaraSystem* GetBloodEffect();
 };

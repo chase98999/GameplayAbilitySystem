@@ -40,7 +40,7 @@ public:
 	virtual bool IsDead_Implementation() const override;
 	virtual AActor* GetAvatar_Implementation() override;
 	virtual TArray<FTaggedMontage> GetAttackMontages_Implementation() override;
-	virtual TObjectPtr<UNiagaraSystem> GetBloodEffect_Implementation() override;
+	virtual UNiagaraSystem* GetBloodEffect_Implementation() override;	// Can't do TObjPtr bc they can't be used in UFunctions
 	/* Combat Interface Overrides */
 
 protected:
