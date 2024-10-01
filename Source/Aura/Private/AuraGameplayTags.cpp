@@ -61,9 +61,16 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Melee, "Abilities.Attack.Melee");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Ranged, "Abilities.Attack.Ranged");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Spell, "Abilities.Attack.Spell");
 
-UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_Weapon, "Montage.Attack.Weapon");
-UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_RightHand, "Montage.Attack.RightHand");
-UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_LeftHand, "Montage.Attack.LeftHand");
+/* Combat Socket Tags */
+UE_DEFINE_GAMEPLAY_TAG(TAG_CombatSocket_Weapon, "CombatSocket.Weapon");
+UE_DEFINE_GAMEPLAY_TAG(TAG_CombatSocket_RightHand, "CombatSocket.RightHand");
+UE_DEFINE_GAMEPLAY_TAG(TAG_CombatSocket_LeftHand, "CombatSocket.LeftHand");
+
+/* Montage Tags */
+UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_1, "Montage.Attack.1");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_2, "Montage.Attack.2");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_3, "Montage.Attack.3");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_4, "Montage.Attack.4");
 
 
 void FAuraGameplayTags::InitializeNativeGameplayTags()
@@ -135,8 +142,14 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Lightning, GameplayTags.Attributes_Resistance_Lightning);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Arcane, GameplayTags.Attributes_Resistance_Arcane);
 
-	/* Montage Gameplay Tags */
-	GameplayTags.Montage_Attack_Weapon = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.Weapon"));
-	GameplayTags.Montage_Attack_RightHand = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.RightHand"));
-	GameplayTags.Montage_Attack_LeftHand = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.LeftHand"));
+	/* Combat Socket Gameplay Tags */
+	GameplayTags.CombatSocket_Weapon = UGameplayTagsManager::Get().RequestGameplayTag(FName("CombatSocket.Weapon"));
+	GameplayTags.CombatSocket_RightHand = UGameplayTagsManager::Get().RequestGameplayTag(FName("CombatSocket.RightHand"));
+	GameplayTags.CombatSocket_LeftHand = UGameplayTagsManager::Get().RequestGameplayTag(FName("CombatSocket.LeftHand"));
+
+	/* Montage Tags */
+	GameplayTags.Montage_Attack_1 = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.1"));
+	GameplayTags.Montage_Attack_2 = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.2"));
+	GameplayTags.Montage_Attack_3 = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.3"));
+	GameplayTags.Montage_Attack_4 = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.4"));
 }

@@ -60,10 +60,16 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Melee);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Ranged);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Spell);
 
+/* Combat Socket Tags */
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_CombatSocket_Weapon);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_CombatSocket_RightHand);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_CombatSocket_LeftHand);
+
 /* Montage Tags */
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_Weapon);
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_RightHand);
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_LeftHand);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_1);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_2);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_3);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_4);
 
 
 /*
@@ -122,9 +128,15 @@ public:
 	FGameplayTag Abilities_Attack_Ranged;
 	FGameplayTag Abilities_Attack_Spell;
 
-	FGameplayTag Montage_Attack_Weapon;
-	FGameplayTag Montage_Attack_RightHand;
-	FGameplayTag Montage_Attack_LeftHand;
+	FGameplayTag CombatSocket_Weapon;
+	FGameplayTag CombatSocket_RightHand;
+	FGameplayTag CombatSocket_LeftHand;
+
+	FGameplayTag Montage_Attack_1;
+	FGameplayTag Montage_Attack_2;
+	FGameplayTag Montage_Attack_3;
+	FGameplayTag Montage_Attack_4;
+
 
 	TMap<FGameplayTag, FGameplayTag> DamageTypesToResistances;
 
