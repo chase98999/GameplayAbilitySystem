@@ -64,6 +64,7 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Spell);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_CombatSocket_Weapon);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_CombatSocket_RightHand);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_CombatSocket_LeftHand);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_CombatSocket_Tail);
 
 /* Montage Tags */
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Montage_Attack_1);
@@ -131,6 +132,7 @@ public:
 	FGameplayTag CombatSocket_Weapon;
 	FGameplayTag CombatSocket_RightHand;
 	FGameplayTag CombatSocket_LeftHand;
+	FGameplayTag CombatSocket_Tail;
 
 	FGameplayTag Montage_Attack_1;
 	FGameplayTag Montage_Attack_2;

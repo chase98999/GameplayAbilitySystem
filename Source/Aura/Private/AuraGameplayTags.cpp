@@ -65,6 +65,7 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Spell, "Abilities.Attack.Spell");
 UE_DEFINE_GAMEPLAY_TAG(TAG_CombatSocket_Weapon, "CombatSocket.Weapon");
 UE_DEFINE_GAMEPLAY_TAG(TAG_CombatSocket_RightHand, "CombatSocket.RightHand");
 UE_DEFINE_GAMEPLAY_TAG(TAG_CombatSocket_LeftHand, "CombatSocket.LeftHand");
+UE_DEFINE_GAMEPLAY_TAG(TAG_CombatSocket_Tail, "CombatSocket.Tail");
 
 /* Montage Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Montage_Attack_1, "Montage.Attack.1");
@@ -146,6 +147,7 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.CombatSocket_Weapon = UGameplayTagsManager::Get().RequestGameplayTag(FName("CombatSocket.Weapon"));
 	GameplayTags.CombatSocket_RightHand = UGameplayTagsManager::Get().RequestGameplayTag(FName("CombatSocket.RightHand"));
 	GameplayTags.CombatSocket_LeftHand = UGameplayTagsManager::Get().RequestGameplayTag(FName("CombatSocket.LeftHand"));
+	GameplayTags.CombatSocket_Tail = UGameplayTagsManager::Get().RequestGameplayTag(FName("CombatSocket.Tail"));
 
 	/* Montage Tags */
 	GameplayTags.Montage_Attack_1 = UGameplayTagsManager::Get().RequestGameplayTag(FName("Montage.Attack.1"));
