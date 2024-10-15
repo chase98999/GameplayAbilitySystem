@@ -60,6 +60,8 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Melee);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Ranged);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Spell);
 
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Summon);
+
 /* Combat Socket Tags */
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_CombatSocket_Weapon);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_CombatSocket_RightHand);
@@ -128,6 +130,8 @@ public:
 	FGameplayTag Abilities_Attack_Melee;
 	FGameplayTag Abilities_Attack_Ranged;
 	FGameplayTag Abilities_Attack_Spell;
+
+	FGameplayTag Abilities_Summon;
 
 	FGameplayTag CombatSocket_Weapon;
 	FGameplayTag CombatSocket_RightHand;
