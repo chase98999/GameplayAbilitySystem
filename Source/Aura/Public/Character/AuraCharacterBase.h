@@ -42,6 +42,8 @@ public:
 	virtual TArray<FTaggedMontage> GetAttackMontages_Implementation() override;
 	virtual UNiagaraSystem* GetBloodEffect_Implementation() override;	// Can't do TObjPtr bc they can't be used in UFunctions
 	virtual FTaggedMontage GetTaggedMontageByTag_Implementation(const FGameplayTag& MontageTag) override;
+	virtual int32 GetMinionCount_Implementation() override;
+	virtual void IncrementMinionCount_Implementation(int32 Amount) override;
 	/* Combat Interface Overrides */
 
 protected:
@@ -104,6 +106,9 @@ protected:
 	TObjectPtr<UNiagaraSystem> BloodEffect;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TObjectPtr<USoundBase> DeathSound;
+
+	/* Minions */
+	int32 MinionCount = 0;
 
 private:
 	UPROPERTY(EditAnywhere, Category="Abilities")
