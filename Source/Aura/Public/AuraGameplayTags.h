@@ -61,6 +61,7 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Ranged);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Spell);
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Summon);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Tag_Abilities_Fire_Firebolt);
 
 /* Combat Socket Tags */
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_CombatSocket_Weapon);
@@ -132,6 +133,7 @@ public:
 	FGameplayTag Abilities_Attack_Spell;
 
 	FGameplayTag Abilities_Summon;
+	FGameplayTag Abilities_Fire_Firebolt;
 
 	FGameplayTag CombatSocket_Weapon;
 	FGameplayTag CombatSocket_RightHand;
