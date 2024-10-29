@@ -57,6 +57,7 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Fire, "Damage.NonPhysical.Fire");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Lightning, "Damage.NonPhysical.Lightning");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Arcane, "Damage.NonPhysical.Arcane");
 
+/* Abilities Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Melee, "Abilities.Attack.Melee");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Ranged, "Abilities.Attack.Ranged");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Spell, "Abilities.Attack.Spell");
@@ -64,6 +65,9 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Spell, "Abilities.Attack.Spell");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Summon, "Abilities.Summon");
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Fire_Firebolt, "Abilities.Fire.Firebolt");
+
+/* Cooldown Tags */
+UE_DEFINE_GAMEPLAY_TAG(TAG_Cooldown_Fire_Firebolt, "Cooldown.Fire.Firebolt");
 
 /* Combat Socket Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_CombatSocket_Weapon, "CombatSocket.Weapon");
@@ -135,12 +139,15 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Damage_NonPhysical_Lightning = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.NonPhysical.Lightning"));
 	GameplayTags.Damage_NonPhysical_Arcane = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.NonPhysical.Arcane"));
 
-	/* Attack Gameplay Tags */
+	/* Ability Gameplay Tags */
 	GameplayTags.Abilities_Attack_Melee = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Attack.Melee"));
 	GameplayTags.Abilities_Attack_Ranged = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Attack.Ranged"));
 	GameplayTags.Abilities_Attack_Spell = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Attack.Spell"));
 	GameplayTags.Abilities_Summon = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Summon"));
 	GameplayTags.Abilities_Fire_Firebolt = UGameplayTagsManager::Get().RequestGameplayTag((FName("Abilities.Fire.Firebolt")));
+
+	/* Cooldown Gameplay Tags */
+	GameplayTags.Cooldown_Fire_Firebolt = UGameplayTagsManager::Get().RequestGameplayTag(FName("Cooldown.Fire.Firebolt"));
 
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Physical_Piercing, GameplayTags.Attributes_Resistance_Piercing);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Physical_Slashing, GameplayTags.Attributes_Resistance_Slashing);
