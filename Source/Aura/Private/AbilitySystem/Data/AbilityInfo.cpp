@@ -7,10 +7,6 @@
 
 FAuraAbilityInfo UAbilityInfo::FindAbilityInfoForTag(const FGameplayTag& AbilityTag, bool bLogNotFound) const
 {
-	if (!(AbilityInformation.Num() > 0))
-	{
-		UE_LOG(LogTemp, Error, TEXT("Ability info not found"));
-	}
 	for (const FAuraAbilityInfo& Info : AbilityInformation)
 	{
 		if (Info.AbilityTag == AbilityTag)
