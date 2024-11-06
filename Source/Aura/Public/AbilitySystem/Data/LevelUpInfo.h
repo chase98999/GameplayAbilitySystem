@@ -35,7 +35,7 @@ public:
 	TArray<FAuraLevelUpInfo> LevelUpInformation;	// Key, Val: XPReq, StructInfo
 
 	UFUNCTION(BlueprintCallable, Category = "LevelUpInformation")
-	int32 GetLevelForXPValue(int32 XPValueToConvert);
+	int32 GetLevelForXPValue(int32 XPValueToConvert) const;
 
 private:
 	// Helper function to find level values through Binary Search Tree
