@@ -111,7 +111,7 @@ void UOverlayWidgetController::OnInitializeStartupAbilities(UAuraAbilitySystemCo
 void UOverlayWidgetController::OnXPChanged(int32 NewXP)
 {
 	AAuraPlayerState* AuraPlayerState = CastChecked<AAuraPlayerState>(PlayerState);
-	const ULevelUpInfo* LevelUpInfo = AuraPlayerState->LevelUpInfo;
+	ULevelUpInfo* LevelUpInfo = AuraPlayerState->LevelUpInfo;
 
 	checkf(LevelUpInfo, TEXT("Unable to find LevelUpInfo, please fill out AuraPlayerStateBlueprint"));
 	const int32 Level = LevelUpInfo->GetLevelForXPValue(NewXP);
