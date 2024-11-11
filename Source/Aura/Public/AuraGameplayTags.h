@@ -24,6 +24,10 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Attributes_Secondary_ManaRRegeneration);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Attributes_Secondary_MaxHealth);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Attributes_Secondary_MaxMana);
 
+/* META TAGS */
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Attributes_Meta_IncomingDamage);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Attributes_Meta_IncomingXP);
+
 /* RESISTANCES */
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Attributes_Resistance_Piercing);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Attributes_Resistance_Slashing);
@@ -105,6 +109,9 @@ public:
 	FGameplayTag Attributes_Secondary_ManaRegeneration;
 	FGameplayTag Attributes_Secondary_MaxHealth;
 	FGameplayTag Attributes_Secondary_MaxMana;
+
+	FGameplayTag Attributes_Meta_IncomingDamage;
+	FGameplayTag Attributes_Meta_IncomingXP;
 
 	FGameplayTag Attributes_Resistance_Piercing;
 	FGameplayTag Attributes_Resistance_Slashing;

@@ -25,6 +25,10 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Secondary_ManaRegeneration, "Attributes.Se
 UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Secondary_MaxHealth, "Attributes.Secondary.MaxHealth");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Secondary_MaxMana, "Attributes.Secondary.MaxMana");
 
+/* META */
+UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Meta_IncomingDamage, "Attributes.Meta.IncomingDamage");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Meta_IncomingXP, "Attributes.Meta.IncomingXP");
+
 /* RESISTANCES */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Resistance_Piercing, "Attributes.Resistance.Piercing");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Attributes_Resistance_Slashing, "Attributes.Resistance.Slashing");
@@ -106,6 +110,13 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Attributes_Secondary_MaxHealth = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Secondary.MaxHealth"));
 	GameplayTags.Attributes_Secondary_MaxMana = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Secondary.MaxMana"));
 
+	/*
+	 * Meta Tags
+	 */
+	GameplayTags.Attributes_Meta_IncomingDamage = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Meta.IncomingDamage"));
+	GameplayTags.Attributes_Meta_IncomingXP = UGameplayTagsManager::Get().RequestGameplayTag(FName("Attributes.Meta.IncomingXP"));
+	
+	
 	/*
 	* Resistances
 	*/
