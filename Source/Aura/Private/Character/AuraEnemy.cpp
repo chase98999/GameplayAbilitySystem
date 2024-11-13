@@ -108,7 +108,7 @@ void AAuraEnemy::UnHighlightActor()
 	bShouldBeHighlighted = false;
 }
 
-int32 AAuraEnemy::GetCharacterLevel()
+int32 AAuraEnemy::GetCharacterLevel_Implementation()
 {
 	return Level;
 }
