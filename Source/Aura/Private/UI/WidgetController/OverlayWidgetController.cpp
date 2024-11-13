@@ -114,16 +114,23 @@ void UOverlayWidgetController::OnXPChanged(int32 NewXP)
 	ULevelUpInfo* LevelUpInfo = AuraPlayerState->LevelUpInfo;
 
 	checkf(LevelUpInfo, TEXT("Unable to find LevelUpInfo, please fill out AuraPlayerStateBlueprint"));
-	const int32 Level = LevelUpInfo->GetLevelForXPValue(NewXP);
-	const int32 MaxLevel = LevelUpInfo->LevelUpInformation.Num();
+	int32 Level = LevelUpInfo->GetLevelForXPValue(NewXP);
+	int32 MaxLevel = LevelUpInfo->LevelUpInformation.Num();
 
-	if (Level <= MaxLevel && Level > 0)
+	if (Level == 1)
 	{
-		const int32 LevelUpRequirement = LevelUpInfo->LevelUpInformation[Level].LevelUpRequirement;
-		const int32 PreviousLevelUpRequirement = LevelUpInfo->LevelUpInformation[MaxLevel - 1].LevelUpRequirement;
+		const int32 LevelUpRequirement = LevelUpInfo->LevelUpInformation[0].LevelUpRequirement;
+		const float XPBarPercent = static_cast<float>(NewXP) / static_cast<float>(LevelUpRequirement);
+		OnXPPercentChangedDelegate.Broadcast(XPBarPercent);
+	}
+	
+	else if (Level <= MaxLevel)
+	{
+		const int32 LevelUpRequirement = LevelUpInfo->LevelUpInformation[Level - 1].LevelUpRequirement;
+		const int32 PreviousLevelUpRequirement = LevelUpInfo->LevelUpInformation[Level - 2].LevelUpRequirement;
 
-		const int32 DeltaLevelRequirement = LevelUpRequirement - PreviousLevelUpRequirement;
-		const int32 XPForThisLevel = NewXP - PreviousLevelUpRequirement;
+		int32 DeltaLevelRequirement = LevelUpRequirement - PreviousLevelUpRequirement;
+		int32 XPForThisLevel = NewXP - PreviousLevelUpRequirement;
 
 		const float XPBarPercent = static_cast<float>(XPForThisLevel) / static_cast<float>(DeltaLevelRequirement);
 

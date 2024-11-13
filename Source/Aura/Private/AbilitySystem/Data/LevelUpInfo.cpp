@@ -12,14 +12,14 @@ int32 ULevelUpInfo::GetLevelForXPValue(int32 XPValueToConvert)
 /*
  * Since we could have a lot of levels, this will be a much quicker lookup time than
  * having to traverse an entire array
- * @return int32: Returns index of the closest level
+ * @return int32: Returns index of the closest level without going over the levelup requirement
  */
 int32 ULevelUpInfo::BinarySearch(const TArray<FAuraLevelUpInfo>& ArraySegment, int32 Target)
 {
 	int LowIndex = 0;
 	int HighIndex = ArraySegment.Num() - 1;
 	
-	int32 ClosestIndex = -1;  // Track the closest index that doesn't exceed the target
+	int32 ClosestIndex = 0;  // Track the closest index that doesn't exceed the target
     
 	while (LowIndex <= HighIndex)
 	{
