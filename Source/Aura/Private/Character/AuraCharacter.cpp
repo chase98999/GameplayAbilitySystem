@@ -88,6 +88,7 @@ void AAuraCharacter::AddToSpellPoints_Implementation(int32 InSpellPoints)
 
 void AAuraCharacter::LevelUp_Implementation()
 {
+	// Multicast particles, don't multicast sound effect
 	MulticastLevelUpParticles_Implementation();
 }
 
