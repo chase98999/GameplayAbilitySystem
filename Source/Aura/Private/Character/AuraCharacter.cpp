@@ -68,11 +68,6 @@ void AAuraCharacter::AddToXP_Implementation(int32 InXP)
 	AuraPlayerState->AddToCharacterXP(InXP);
 }
 
-void AAuraCharacter::AddToAttributePoints_Implementation(int32 InAttributePoints)
-{
-	//TODO add attribute points to player state
-}
-
 void AAuraCharacter::AddToPlayerLevel_Implementation(int32 InPlayerLevel)
 {
 	AAuraPlayerState* AuraPlayerState = GetPlayerState<AAuraPlayerState>();
@@ -81,14 +76,24 @@ void AAuraCharacter::AddToPlayerLevel_Implementation(int32 InPlayerLevel)
 	AuraPlayerState->AddToCharacterLevel(InPlayerLevel);
 }
 
+void AAuraCharacter::AddToAttributePoints_Implementation(int32 InAttributePoints)
+{
+	AAuraPlayerState* AuraPlayerState = GetPlayerState<AAuraPlayerState>();
+	check(AuraPlayerState);
+
+	AuraPlayerState->AddToAttributePoints(InAttributePoints);
+}
+
 void AAuraCharacter::AddToSpellPoints_Implementation(int32 InSpellPoints)
 {
-	//TODO add spell points to player state
+	AAuraPlayerState* AuraPlayerState = GetPlayerState<AAuraPlayerState>();
+	check(AuraPlayerState);
+
+	AuraPlayerState->AddToSpellPoints(InSpellPoints);
 }
 
 void AAuraCharacter::LevelUp_Implementation()
 {
-	// Multicast particles, don't multicast sound effect
 	MulticastLevelUpParticles_Implementation();
 }
 
@@ -146,7 +151,6 @@ void AAuraCharacter::InitAbilityActorInfo()
 	{
 		if (AAuraHUD* AuraHUD = Cast<AAuraHUD>(AuraPlayerController->GetHUD()))
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Initalizing overlay!"));
 			AuraHUD->InitOverlay(AuraPlayerController, AuraPlayerState, AbilitySystemComponent, AttributeSet);
 		}
 	}
