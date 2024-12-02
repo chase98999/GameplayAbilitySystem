@@ -65,9 +65,16 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage_NonPhysical_Arcane);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Melee);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Ranged);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Spell);
-
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Summon);
+
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Tag_Abilities_Fire_Firebolt);
+
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_HitReact);
+
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Status_Locked);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Status_Eligible);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Status_Unlocked);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Status_Equipped);
 
 /* Cooldown Tags */
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Cooldown_Fire_Firebolt);
@@ -145,10 +152,20 @@ public:
 	FGameplayTag Abilities_Attack_Melee;
 	FGameplayTag Abilities_Attack_Ranged;
 	FGameplayTag Abilities_Attack_Spell;
-
 	FGameplayTag Abilities_Summon;
-	FGameplayTag Abilities_Fire_Firebolt;
 
+	FGameplayTag Abilities_HitReact;
+	
+	FGameplayTag Abilities_Status_Locked;
+	FGameplayTag Abilities_Status_Eligible;
+	FGameplayTag Abilities_Status_Unlocked;
+	FGameplayTag Abilities_Status_Equipped;
+
+	FGameplayTag Abilities_Type_Offensive;
+	FGameplayTag Abilities_Type_Passive;
+	FGameplayTag Abilities_Type_None;
+	
+	FGameplayTag Abilities_Fire_Firebolt;
 	FGameplayTag Cooldown_Fire_Firebolt;
 
 	FGameplayTag CombatSocket_Weapon;
