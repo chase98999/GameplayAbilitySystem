@@ -68,6 +68,7 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Spell);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Summon);
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Tag_Abilities_Fire_Firebolt);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Tag_Abilities_Lightning_Electrocute);
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_HitReact);
 
@@ -170,6 +171,8 @@ public:
 	FGameplayTag Abilities_Type_None;
 	
 	FGameplayTag Abilities_Fire_Firebolt;
+	FGameplayTag Abilities_Lightning_Electrocute;
+	
 	FGameplayTag Cooldown_Fire_Firebolt;
 
 	FGameplayTag CombatSocket_Weapon;

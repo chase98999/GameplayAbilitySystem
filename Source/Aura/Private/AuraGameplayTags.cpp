@@ -71,6 +71,7 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Spell, "Abilities.Attack.Spell");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Summon, "Abilities.Summon");
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Fire_Firebolt, "Abilities.Fire.Firebolt");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Lightning_Electricute, "Abilities.Lightning.Electrocute");
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_HitReact, "Abilities.HitReact");
 
@@ -171,6 +172,7 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Abilities_Attack_Spell = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Attack.Spell"));
 	GameplayTags.Abilities_Summon = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Summon"));
 	GameplayTags.Abilities_Fire_Firebolt = UGameplayTagsManager::Get().RequestGameplayTag((FName("Abilities.Fire.Firebolt")));
+	GameplayTags.Abilities_Lightning_Electrocute = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Lightning.Electrocute"));
 
 	GameplayTags.Abilities_HitReact = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.HitReact"));
 
