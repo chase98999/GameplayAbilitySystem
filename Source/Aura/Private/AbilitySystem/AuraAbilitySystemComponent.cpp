@@ -145,6 +145,8 @@ FGameplayAbilitySpec* UAuraAbilitySystemComponent::GetSpecFromAbilityTag(const F
 			}
 		}
 	}
+
+	return nullptr;
 }
 
 void UAuraAbilitySystemComponent::UpdateAttribute(const FGameplayTag& AttributeTag)
@@ -171,6 +173,7 @@ void UAuraAbilitySystemComponent::UpdateAbilityStatuses(int32 Level)
 			AbilitySpec.DynamicAbilityTags.AddTag(FAuraGameplayTags::Get().Abilities_Status_Eligible);
 			GiveAbility(AbilitySpec);
 			MarkAbilitySpecDirty(AbilitySpec);	// Forces ability to replicate now instead of on the next update loop
+			ClientUpdateAbilityStatus(Info.AbilityTag, FAuraGameplayTags::Get().Abilities_Status_Eligible);
 		}
 	}
 }
@@ -186,6 +189,12 @@ void UAuraAbilitySystemComponent::ServerUpgradeAttribute_Implementation(const FG
 	{
 		IPlayerInterface::Execute_AddToAttributePoints(GetAvatarActor(), -1);
 	}
+}
+
+void UAuraAbilitySystemComponent::ClientUpdateAbilityStatus_Implementation(const FGameplayTag& AbilityTag,
+	const FGameplayTag& StatusTag)
+{
+	AbilityStatusChangedDelegate.Broadcast(AbilityTag, StatusTag);
 }
 
 void UAuraAbilitySystemComponent::OnRep_ActivateAbilities()
