@@ -76,6 +76,10 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Status_Eligible);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Status_Unlocked);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Status_Equipped);
 
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Type_Offensive);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Type_Passive);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Type_None);
+
 /* Cooldown Tags */
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Cooldown_Fire_Firebolt);
 
