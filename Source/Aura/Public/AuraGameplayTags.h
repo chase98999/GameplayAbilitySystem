@@ -62,6 +62,7 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage_NonPhysical_Lightning);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage_NonPhysical_Arcane);
 
 /* Abilities Tags */
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_None);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Melee);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Ranged);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Spell);
@@ -154,6 +155,7 @@ public:
 	FGameplayTag Damage_NonPhysical_Lightning;
 	FGameplayTag Damage_NonPhysical_Arcane;
 
+	FGameplayTag Abilities_None;
 	FGameplayTag Abilities_Attack_Melee;
 	FGameplayTag Abilities_Attack_Ranged;
 	FGameplayTag Abilities_Attack_Spell;

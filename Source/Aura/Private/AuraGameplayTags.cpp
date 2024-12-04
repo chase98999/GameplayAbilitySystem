@@ -65,6 +65,7 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Lightning, "Damage.NonPhysical.Lig
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Arcane, "Damage.NonPhysical.Arcane");
 
 /* Abilities Tags */
+UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_None, "Abilities.None");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Melee, "Abilities.Attack.Melee");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Ranged, "Abilities.Attack.Ranged");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_Attack_Spell, "Abilities.Attack.Spell");
@@ -167,6 +168,7 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Damage_NonPhysical_Arcane = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.NonPhysical.Arcane"));
 
 	/* Ability Gameplay Tags */
+	GameplayTags.Abilities_None = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.None"));
 	GameplayTags.Abilities_Attack_Melee = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Attack.Melee"));
 	GameplayTags.Abilities_Attack_Ranged = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Attack.Ranged"));
 	GameplayTags.Abilities_Attack_Spell = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Attack.Spell"));

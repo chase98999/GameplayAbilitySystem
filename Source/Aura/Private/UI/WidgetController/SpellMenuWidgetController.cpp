@@ -3,6 +3,7 @@
 
 #include "UI/WidgetController/SpellMenuWidgetController.h"
 
+#include "AuraGameplayTags.h"
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
 #include "AbilitySystem/Data/AbilityInfo.h"
 #include "Player/AuraPlayerState.h"
@@ -31,4 +32,54 @@ void USpellMenuWidgetController::BindCallbacksToDependencies()
 	{
 		SpellPointsChangedDelegate.Broadcast(Points);
 	});
+}
+
+void USpellMenuWidgetController::SpellGlobeSelected(const FGameplayTag& AbilityTag)
+{
+	const FAuraGameplayTags GameplayTags = FAuraGameplayTags::Get();
+	const int32 SpellPoints = GetAuraPS()->GetSpellPoints();
+	FGameplayTag AbilityStatus;
+
+	bool bTagValid = AbilityTag.IsValid();
+	bool bTagNone = AbilityTag.MatchesTag(GameplayTags.Abilities_None);
+	FGameplayAbilitySpec* AbilitySpec = GetAuraASC()->GetSpecFromAbilityTag(AbilityTag);
+	bool bSpecValid = AbilitySpec != nullptr;
+	
+	if (!bTagValid || bTagNone || !bSpecValid)
+	{
+		AbilityStatus = GameplayTags.Abilities_Status_Locked;
+	}
+	else
+	{
+		AbilityStatus = GetAuraASC()->GetStatusFromSpec(*AbilitySpec);
+	}
+
+	bool bEnableSpendPoints = false;
+	bool bEnableEquipButton = false;
+	ShouldEnableButtons(AbilityStatus, SpellPoints, bEnableSpendPoints, bEnableEquipButton);
+	
+	SpellGlobeSelectedDelegate.Broadcast(bEnableSpendPoints, bEnableEquipButton);
+}
+
+void USpellMenuWidgetController::ShouldEnableButtons(const FGameplayTag& AbilityStatus, int32 SpellPoints,
+	bool& bShouldEnableSPButton, bool& bShouldEnableEquipButton)
+{
+	const FAuraGameplayTags GameplayTags = FAuraGameplayTags::Get();
+
+	bShouldEnableSPButton = false;
+	bShouldEnableEquipButton = false;
+	if (AbilityStatus.MatchesTagExact(GameplayTags.Abilities_Status_Equipped))
+	{
+		bShouldEnableEquipButton = true;
+		if (SpellPoints > 0) { bShouldEnableSPButton = true; }
+	}
+	else if (AbilityStatus.MatchesTagExact(GameplayTags.Abilities_Status_Eligible))
+	{
+		if (SpellPoints > 0) { bShouldEnableSPButton = true; }
+	}
+	else if (AbilityStatus.MatchesTagExact(GameplayTags.Abilities_Status_Unlocked))
+	{
+		bShouldEnableEquipButton = true;
+		if (SpellPoints > 0) { bShouldEnableSPButton = true; }
+	}
 }
