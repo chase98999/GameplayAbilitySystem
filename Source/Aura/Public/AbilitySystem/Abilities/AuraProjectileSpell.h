@@ -31,7 +31,6 @@ protected:
 	int32 NumProjectiles = 5;
 
 public:
-	virtual FString GetDescription(int32 Level) override;
-	virtual FString GetNextLevelDescription(int32 Level) override;
+	
 	
 };

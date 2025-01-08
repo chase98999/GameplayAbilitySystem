@@ -4,9 +4,6 @@
 #include "AbilitySystem/Abilities/AuraProjectileSpell.h"
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
-#include "AbilitySystem/AuraAbilitySystemLibrary.h"
-#include "AbilitySystem/Data/AbilityInfo.h"
-#include "Kismet/KismetSystemLibrary.h"
 #include "Actor/AuraProjectile.h"
 #include "Interaction/CombatInterface.h"
 #include "Aura/Public/AuraGameplayTags.h"
@@ -66,23 +63,4 @@ void UAuraProjectileSpell::SpawnProjectile(const FVector& ProjectileTargetLocati
 		Projectile->DamageEffectSpecHandle = SpecHandle;
 		Projectile->FinishSpawning(SpawnTransform);
 	}
-}
-
-FString UAuraProjectileSpell::GetDescription(int32 Level)
-{
-	const int32 Damage = DamageTypes[FAuraGameplayTags::Get().Damage_NonPhysical_Fire].GetValueAtLevel(Level);
-	if (Level == 1)
-	{
-		return FString::Printf(TEXT("<Title>FIRE BOLT</>\n\n<Default>Launches a bolt of fire exploding on impact and dealing: </><Damage>%d</><Default> fire damage with a chance to burn.</>\n\n<Small>Level: </><Level>%d</>"), Damage, Level);
-	}
-	else
-	{
-		return FString::Printf(TEXT("<Title>FIRE BOLT</>\n\n<Default>Launches %d bolts of fire exploding on impact and dealing: </><Damage>%d</><Default> fire damage with a chance to burn.</>\n\n<Small>Level: </><Level>%d</>"), FMath::Min(Level, NumProjectiles), Damage, Level);
-	}
-}
-
-FString UAuraProjectileSpell::GetNextLevelDescription(int32 Level)
-{
-	const int32 Damage = DamageTypes[FAuraGameplayTags::Get().Damage_NonPhysical_Fire].GetValueAtLevel(Level);
-	return FString::Printf(TEXT("<Title>NEXT LEVEL:</>\n\n<Default>Launches %d bolts of fire exploding on impact and dealing: </><Damage>%d</><Default> fire damage with a chance to burn.</>\n\n<Small>Level: </><Level>%d</>"), FMath::Min(Level, NumProjectiles), Damage, Level);
 }
