@@ -33,11 +33,14 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "GAS|Spells")
 	void SpellGlobeSelected(const FGameplayTag& AbilityTag);
 
-	UFUNCTION(BlueprintCallable, Category = "GAS|Spells")
+	UFUNCTION(BlueprintCallable)
 	void SpendPointButtonPressed();
 	
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
 	FSpellGlobeSelectedSignature SpellGlobeSelectedDelegate;
+
+	UFUNCTION(BlueprintCallable)
+	void GlobeDeselect();
 
 private:
 	static void ShouldEnableButtons(const FGameplayTag& AbilityStatus, int32 SpellPoints,
