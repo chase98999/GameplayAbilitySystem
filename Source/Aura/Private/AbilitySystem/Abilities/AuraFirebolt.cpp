@@ -6,7 +6,7 @@
 
 FString UAuraFirebolt::GetDescription(int32 Level)
 {
-	const int32 Damage = GetDamageByDamageType(Level, FAuraGameplayTags::Get().Damage_NonPhysical_Fire);
+	const int32 ScaledDamage = Damage.GetValueAtLevel(Level);
 	const float ManaCost = FMath::Abs(GetManaCost(Level));
 	const float Cooldown = GetCooldown(Level);
 	if (Level == 1)
@@ -26,7 +26,7 @@ FString UAuraFirebolt::GetDescription(int32 Level)
 			"<Damage>%d</><Default> "
 			"fire damage with a chance to burn.</>\n\n"
 			
-			), Level, ManaCost, Cooldown, Damage);
+			), Level, ManaCost, Cooldown, ScaledDamage);
 	}
 	else
 	{
@@ -45,7 +45,7 @@ FString UAuraFirebolt::GetDescription(int32 Level)
 		"<Damage>%d</><Default> "
 		"fire damage with a chance to burn.</>\n\n"
 			
-		), Level, ManaCost, Cooldown, FMath::Min(Level, NumProjectiles), Damage);
+		), Level, ManaCost, Cooldown, FMath::Min(Level, NumProjectiles), ScaledDamage);
 	}
 }
 
@@ -53,7 +53,7 @@ FString UAuraFirebolt::GetNextLevelDescription(int32 Level)
 {
 	const float ManaCost = FMath::Abs(GetManaCost(Level));
 	const float Cooldown = GetCooldown(Level);
-	const int32 Damage = DamageTypes[FAuraGameplayTags::Get().Damage_NonPhysical_Fire].GetValueAtLevel(Level);
+	const int32 ScaledDamage = Damage.GetValueAtLevel(Level);
 	return FString::Printf(TEXT(
 	//Title
 	"<Title>NEXT LEVEL:</>\n\n"
@@ -69,5 +69,5 @@ FString UAuraFirebolt::GetNextLevelDescription(int32 Level)
 	"<Damage>%d</><Default> "
 	"fire damage with a chance to burn.</>\n\n"
 			
-	), Level, ManaCost, Cooldown, FMath::Min(Level, NumProjectiles), Damage);
+	), Level, ManaCost, Cooldown, FMath::Min(Level, NumProjectiles), ScaledDamage);
 }

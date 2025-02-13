@@ -61,6 +61,13 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage_NonPhysical_Fire);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage_NonPhysical_Lightning);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Damage_NonPhysical_Arcane);
 
+/* Debuff Gameplay Tags */
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Burn);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Stun);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Arcane);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Daze);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Bleed);
+
 /* Abilities Tags */
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_None);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Melee);
@@ -155,6 +162,12 @@ public:
 	FGameplayTag Damage_NonPhysical_Lightning;
 	FGameplayTag Damage_NonPhysical_Arcane;
 
+	FGameplayTag Debuff_Burn;	// From fire damage
+	FGameplayTag Debuff_Stun;	// From electric damage
+	FGameplayTag Debuff_Arcane;   // From arcane damage
+	FGameplayTag Debuff_Daze;	// From blunt damage
+	FGameplayTag Debuff_Bleed;	// From slashing damage
+
 	FGameplayTag Abilities_None;
 	FGameplayTag Abilities_Attack_Melee;
 	FGameplayTag Abilities_Attack_Ranged;
@@ -189,6 +202,7 @@ public:
 
 
 	TMap<FGameplayTag, FGameplayTag> DamageTypesToResistances;
+	TMap<FGameplayTag, FGameplayTag> DamageTypesToDebuffs;
 
 
 private:

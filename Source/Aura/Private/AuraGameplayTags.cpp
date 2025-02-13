@@ -53,7 +53,7 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_InputTag_Passive_2, "InputTag.Passive.2");
 /* Effects Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Effects_HitReact, "Effects.HitReact");
 
-/* Damage Input Tags */
+/* Damage Gameplay Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage, "Damage");
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_Physical_Piercing, "Damage.Physical.Piercing");
@@ -63,6 +63,14 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_Physical_Blunt, "Damage.Physical.Blunt");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Fire, "Damage.NonPhysical.Fire");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Lightning, "Damage.NonPhysical.Lightning");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Arcane, "Damage.NonPhysical.Arcane");
+
+/* Debuff Gameplay Tags */
+UE_DEFINE_GAMEPLAY_TAG(TAG_Debuff_Burn, "Debuff.Burn");
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Stun, "Debuff.Stun");
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Arcane, "Debuff.Arcane");
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Daze, "Debuff.Daze");
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Bleed, "Debuff.Bleed");
+
 
 /* Abilities Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_None, "Abilities.None");
@@ -167,6 +175,13 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Damage_NonPhysical_Lightning = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.NonPhysical.Lightning"));
 	GameplayTags.Damage_NonPhysical_Arcane = UGameplayTagsManager::Get().RequestGameplayTag(FName("Damage.NonPhysical.Arcane"));
 
+	/* Debuff Gameplay Tags */
+	GameplayTags.Debuff_Burn = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Burn"));
+	GameplayTags.Debuff_Stun = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stun"));
+	GameplayTags.Debuff_Arcane = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Arcane"));
+	GameplayTags.Debuff_Daze = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Daze"));
+	GameplayTags.Debuff_Bleed = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Bleed"));
+
 	/* Ability Gameplay Tags */
 	GameplayTags.Abilities_None = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.None"));
 	GameplayTags.Abilities_Attack_Melee = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.Attack.Melee"));
@@ -190,12 +205,20 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	/* Cooldown Gameplay Tags */
 	GameplayTags.Cooldown_Fire_Firebolt = UGameplayTagsManager::Get().RequestGameplayTag(FName("Cooldown.Fire.Firebolt"));
 
+	/* Create types to resistances map */
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Physical_Piercing, GameplayTags.Attributes_Resistance_Piercing);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Physical_Slashing, GameplayTags.Attributes_Resistance_Slashing);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Physical_Blunt, GameplayTags.Attributes_Resistance_Blunt);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Fire, GameplayTags.Attributes_Resistance_Fire);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Lightning, GameplayTags.Attributes_Resistance_Lightning);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_NonPhysical_Arcane, GameplayTags.Attributes_Resistance_Arcane);
+
+	/* Create damage types to debuffs map */
+	GameplayTags.DamageTypesToDebuffs.Add(GameplayTags.Damage_NonPhysical_Fire, GameplayTags.Debuff_Burn);
+	GameplayTags.DamageTypesToDebuffs.Add(GameplayTags.Damage_NonPhysical_Lightning, GameplayTags.Debuff_Stun);
+	GameplayTags.DamageTypesToDebuffs.Add(GameplayTags.Damage_NonPhysical_Arcane, GameplayTags.Debuff_Arcane);
+	GameplayTags.DamageTypesToDebuffs.Add(GameplayTags.Damage_Physical_Blunt, GameplayTags.Debuff_Daze);
+	GameplayTags.DamageTypesToDebuffs.Add(GameplayTags.Damage_Physical_Slashing, GameplayTags.Debuff_Bleed);
 
 	/* Combat Socket Gameplay Tags */
 	GameplayTags.CombatSocket_Weapon = UGameplayTagsManager::Get().RequestGameplayTag(FName("CombatSocket.Weapon"));
