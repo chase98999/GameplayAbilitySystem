@@ -66,11 +66,15 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Damage_NonPhysical_Arcane, "Damage.NonPhysical.Arcane
 
 /* Debuff Gameplay Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Debuff_Burn, "Debuff.Burn");
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Stun, "Debuff.Stun");
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Arcane, "Debuff.Arcane");
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Daze, "Debuff.Daze");
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Bleed, "Debuff.Bleed");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Debuff_Stun, "Debuff.Stun");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Debuff_Arcane, "Debuff.Arcane");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Debuff_Daze, "Debuff.Daze");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Debuff_Bleed, "Debuff.Bleed");
 
+UE_DEFINE_GAMEPLAY_TAG(TAG_Debuff_Stats_Chance, "Debuff.Stats.Chance");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Debuff_Stats_Damage, "Debuff.Stats.Damage");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Debuff_Stats_Duration, "Debuff.Stats.Duration");
+UE_DEFINE_GAMEPLAY_TAG(TAG_Debuff_Stats_Frequency, "Debuff.Stats.Frequency");
 
 /* Abilities Tags */
 UE_DEFINE_GAMEPLAY_TAG(TAG_Abilities_None, "Abilities.None");
@@ -181,6 +185,11 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Debuff_Arcane = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Arcane"));
 	GameplayTags.Debuff_Daze = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Daze"));
 	GameplayTags.Debuff_Bleed = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Bleed"));
+
+	GameplayTags.Debuff_Stats_Chance = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats_Chance"));
+	GameplayTags.Debuff_Stats_Damage = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats_Damage"));
+	GameplayTags.Debuff_Stats_Duration = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats_Duration"));
+	GameplayTags.Debuff_Stats_Frequency = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats_Frequency"));
 
 	/* Ability Gameplay Tags */
 	GameplayTags.Abilities_None = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.None"));

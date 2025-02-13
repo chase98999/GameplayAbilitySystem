@@ -68,6 +68,11 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Arcane);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Daze);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Bleed);
 
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Stats_Chance);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Stats_Damage);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Stats_Duration);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Debuff_Stats_Frequency);
+
 /* Abilities Tags */
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_None);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Abilities_Attack_Melee);
@@ -167,6 +172,11 @@ public:
 	FGameplayTag Debuff_Arcane;   // From arcane damage
 	FGameplayTag Debuff_Daze;	// From blunt damage
 	FGameplayTag Debuff_Bleed;	// From slashing damage
+
+	FGameplayTag Debuff_Stats_Chance;
+	FGameplayTag Debuff_Stats_Damage;
+	FGameplayTag Debuff_Stats_Duration;
+	FGameplayTag Debuff_Stats_Frequency;
 
 	FGameplayTag Abilities_None;
 	FGameplayTag Abilities_Attack_Melee;
