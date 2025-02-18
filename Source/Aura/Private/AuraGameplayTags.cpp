@@ -186,10 +186,10 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Debuff_Daze = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Daze"));
 	GameplayTags.Debuff_Bleed = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Bleed"));
 
-	GameplayTags.Debuff_Stats_Chance = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats_Chance"));
-	GameplayTags.Debuff_Stats_Damage = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats_Damage"));
-	GameplayTags.Debuff_Stats_Duration = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats_Duration"));
-	GameplayTags.Debuff_Stats_Frequency = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats_Frequency"));
+	GameplayTags.Debuff_Stats_Chance = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats.Chance"));
+	GameplayTags.Debuff_Stats_Damage = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats.Damage"));
+	GameplayTags.Debuff_Stats_Duration = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats.Duration"));
+	GameplayTags.Debuff_Stats_Frequency = UGameplayTagsManager::Get().RequestGameplayTag(FName("Debuff.Stats.Frequency"));
 
 	/* Ability Gameplay Tags */
 	GameplayTags.Abilities_None = UGameplayTagsManager::Get().RequestGameplayTag(FName("Abilities.None"));

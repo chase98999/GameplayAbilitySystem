@@ -135,17 +135,19 @@ int32 UAuraAbilitySystemLibrary::GetXPRewardForClassAndLevel(const UObject* Worl
 FGameplayEffectContextHandle UAuraAbilitySystemLibrary::ApplyDamageEffect(const FDamageEffectParams& Params)
 {
 	const FAuraGameplayTags& GameplayTags = FAuraGameplayTags::Get();
-	FGameplayEffectContextHandle GEContextHandle = Params.SourceASC->MakeEffectContext();
-	GEContextHandle.AddSourceObject(Params.SourceASC->GetAvatarActor());
-	FGameplayEffectSpecHandle OutgoingSpec = Params.SourceASC->MakeOutgoingSpec(Params.DamageGameplayEffectClass, Params.AbilityLevel, GEContextHandle);
-
-	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec.Data.Get(), Params.DamageType, Params.BaseDamage);
-	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec.Data.Get(), GameplayTags.Debuff_Stats_Chance, Params.DebuffChance);
-	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec.Data.Get(), GameplayTags.Debuff_Stats_Damage, Params.DebuffDamage);
-	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec.Data.Get(), GameplayTags.Debuff_Stats_Duration, Params.DebuffDuration);
-	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec.Data.Get(), GameplayTags.Debuff_Stats_Frequency, Params.DebuffFrequency);
+	const AActor* SourceAvatarActor = Params.SourceASC->GetAvatarActor();
 	
-	Params.TargetASC->ApplyGameplayEffectSpecToSelf(*OutgoingSpec.Data.Get());
+	FGameplayEffectContextHandle GEContextHandle = Params.SourceASC->MakeEffectContext();
+	GEContextHandle.AddSourceObject(SourceAvatarActor);
+	const FGameplayEffectSpecHandle OutgoingSpec = Params.SourceASC->MakeOutgoingSpec(Params.DamageGameplayEffectClass, Params.AbilityLevel, GEContextHandle);
+
+	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec, Params.DamageType, Params.BaseDamage);
+	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec, GameplayTags.Debuff_Stats_Chance, Params.DebuffChance);
+	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec, GameplayTags.Debuff_Stats_Damage, Params.DebuffDamage);
+	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec, GameplayTags.Debuff_Stats_Duration, Params.DebuffDuration);
+	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec, GameplayTags.Debuff_Stats_Frequency, Params.DebuffFrequency);
+	
+	Params.TargetASC->ApplyGameplayEffectSpecToSelf(*OutgoingSpec.Data);
 
 	return GEContextHandle;
 }
