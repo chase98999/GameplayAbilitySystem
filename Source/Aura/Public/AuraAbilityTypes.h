@@ -58,9 +58,19 @@ public:
 
 	bool IsCriticalHit() const { return bIsCriticalHit; }
 	bool IsBlockedHit() const { return bIsBlockedHit; }
+	bool IsSuccessfulDebuff() const { return bIsSuccessfulDebuff; }
+	float GetDebuffDamage() const { return DebuffDamage; }
+	float GetDebuffDuration() const { return DebuffDuration; }
+	float GetDebuffFrequency() const { return DebuffFrequency; }
+	TSharedPtr<FGameplayTag> GetDamageType() const { return DamageTypeTag; }
 
 	void SetIsCriticalHit(bool bInIsCriticalHit) { bIsCriticalHit = bInIsCriticalHit; }
 	void SetIsBlockedHit(bool bInIsBlockedHit) { bIsBlockedHit = bInIsBlockedHit; }
+	void SetIsSuccessfulDebuff(bool bInIsSuccessful) { bIsSuccessfulDebuff = bInIsSuccessful; }
+	void SetDebuffDamage(float inDamage) { DebuffDamage = inDamage; }
+	void SetDebuffDuration(float inDuration) { DebuffDuration = inDuration; }
+	void SetDebuffFrequency(float inFrequency) { DebuffFrequency = inFrequency; }
+	void SetDamageType(TSharedPtr<FGameplayTag> inDamageType) { DamageTypeTag = inDamageType; }
 
 	virtual UScriptStruct* GetScriptStruct() { return StaticStruct(); }
 
@@ -86,6 +96,20 @@ protected:
 
 	UPROPERTY()
 	bool bIsCriticalHit = false;
+
+	UPROPERTY()
+	bool bIsSuccessfulDebuff = false;
+
+	UPROPERTY()
+	float DebuffDamage = 0.f;
+
+	UPROPERTY()
+	float DebuffDuration = 0.f;
+
+	UPROPERTY()
+	float DebuffFrequency = 0.f;
+
+	TSharedPtr<FGameplayTag> DamageTypeTag;
 };
 
 template<>

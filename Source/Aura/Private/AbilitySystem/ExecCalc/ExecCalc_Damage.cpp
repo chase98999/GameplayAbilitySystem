@@ -93,6 +93,8 @@ void UExecCalc_Damage::DetermineDebuff(const FGameplayEffectCustomExecutionParam
 				UE_LOG(LogTemp, Warning, TEXT("Applying debuff of type (tag): {%s}" ), *DebuffType.ToString())
 				// TODO:
 				// Apply debuff
+				FGameplayEffectContextHandle EffectContextHandle = Spec.GetContext();
+				
 			}
 		}
 	}
