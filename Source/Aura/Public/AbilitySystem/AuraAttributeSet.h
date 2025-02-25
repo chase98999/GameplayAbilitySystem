@@ -57,6 +57,10 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 	virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
+	void HandleHealthAndMana(const FGameplayEffectModCallbackData& Data);
+	bool HandleIncomingDamage(FEffectProperties& Props);
+	void HandleIncomingXP(FEffectProperties& Props);
+	void HandleDebuff(FEffectProperties& Props);
 
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 
