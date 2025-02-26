@@ -15,6 +15,7 @@ class UGameplayEffect;
 class UGameplayAbility;
 class UAnimMontage;
 class UNiagaraSystem;
+class UDebuffNiagaraComponent;
 
 UCLASS(ABSTRACT)
 class AURA_API AAuraCharacterBase : public ACharacter, public IAbilitySystemInterface, public ICombatInterface
@@ -45,7 +46,12 @@ public:
 	virtual FTaggedMontage GetTaggedMontageByTag_Implementation(const FGameplayTag& MontageTag) override;
 	virtual int32 GetMinionCount_Implementation() override;
 	virtual void IncrementMinionCount_Implementation(int32 Amount) override;
+	virtual FOnASCRegistered GetOnASCRegisteredDelegate() override;
+	virtual FOnDeath GetOnDeathDelegate() override;
 	virtual ECharacterClass GetCharacterClass_Implementation() override;
+
+	FOnASCRegistered OnASCRegistered;
+	FOnDeath OnDeath;
 	/* Combat Interface Overrides */
 
 protected:
@@ -92,6 +98,9 @@ protected:
 	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level);
 	virtual void InitializeDefaultAttributes();
 	void AddCharacterAbilities();
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UDebuffNiagaraComponent> BurnDebuffComponent;
 
 	/* Dissolve Effects */
 
