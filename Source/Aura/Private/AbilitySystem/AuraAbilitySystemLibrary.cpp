@@ -139,6 +139,7 @@ FGameplayEffectContextHandle UAuraAbilitySystemLibrary::ApplyDamageEffect(const 
 	
 	FGameplayEffectContextHandle GEContextHandle = Params.SourceASC->MakeEffectContext();
 	GEContextHandle.AddSourceObject(SourceAvatarActor);
+	SetDeathImpulse(GEContextHandle, Params.DeathImpulse);
 	const FGameplayEffectSpecHandle OutgoingSpec = Params.SourceASC->MakeOutgoingSpec(Params.DamageGameplayEffectClass, Params.AbilityLevel, GEContextHandle);
 
 	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec, Params.DamageType, Params.BaseDamage);
@@ -148,7 +149,6 @@ FGameplayEffectContextHandle UAuraAbilitySystemLibrary::ApplyDamageEffect(const 
 	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(OutgoingSpec, GameplayTags.Debuff_Stats_Frequency, Params.DebuffFrequency);
 	
 	Params.TargetASC->ApplyGameplayEffectSpecToSelf(*OutgoingSpec.Data);
-	SetDeathImpulse(GEContextHandle, Params.DeathImpulse);
 	return GEContextHandle;
 }
 
